@@ -22,7 +22,7 @@ function wpthumb( $url, $args = array() ) {
 
 	$args = wpthumb_parse_args( $args );
 
-	$is_local = ( strpos( $url, DOMAIN_CURRENT_SITE ) !== false );
+	$is_local = ( strpos( $url, is_multisite() ? DOMAIN_CURRENT_SITE : get_option( 'homeurl' ) ) !== false );
 
 	/**
 	 * In cases where $url is a path inside the content dir, we can convert it to a URL
