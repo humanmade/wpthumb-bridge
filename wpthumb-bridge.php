@@ -38,6 +38,11 @@ function wpthumb( $url, $args = array() ) {
 	if ( strpos( $url, 's3://' ) === 0 ) {
 		$upload_dir = wp_upload_dir();
 		$url = str_replace( $upload_dir['basedir'], $upload_dir['baseurl'], $url );
+
+		// if it's still a path, just convert it to a URL
+		if ( strpos( $url, 's3://' ) === 0 ) {
+			$url = preg_replace( '#s3://([^/]+)/(.+)#', 'https://$1.s3.amazonaws.com/$2', $url );
+		}
 		$is_local = false;
 	}
 
