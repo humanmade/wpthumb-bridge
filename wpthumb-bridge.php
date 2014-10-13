@@ -60,7 +60,7 @@ function wpthumb_parse_args( $args ) {
 
 		// if there are no "special" wpthumb args, then we shouldn' bother creating a WP Thumb, just use the WordPress one
 		if ( $args === ( $args = apply_filters( 'wpthumb_create_args_from_size', $args ) ) )
-			return $null;
+			return null;
 	} else if ( is_int( $args ) ) {
 		$args = array( 'width' => $args, 'height' => $args );
 	}
