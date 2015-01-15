@@ -74,8 +74,7 @@ function wpthumb_parse_args( $args ) {
 		$args['height'] = $args[1];
 
 	if ( ! empty( $args['crop'] ) && $args['crop'] && empty( $args['crop_from_position'] ) ) {
-		global $post;
-		$args['crop_from_position'] = get_post_meta( $post->ID, 'wpthumb_crop_pos', true );
+		$args['crop_from_position'] = get_post_meta( get_the_ID(), 'wpthumb_crop_pos', true );
 	}
 
 
